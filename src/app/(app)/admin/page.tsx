@@ -1,15 +1,15 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useUser } from '@/lib/useUser';
-import { createClient } from '@/lib/supabase-browser';
+import { useUser } from './lib/useUser';
+import { createClient } from './lib/supabase-browser';
 import {
   getRank, contrastText, peutGererConfig, peutAttribuerRang,
   timeAgo, DEFAULT_RANKS,
   type RankDef, type BadgeDef, type ReportTemplateDef,
-} from '@/lib/constants';
-import Avatar from '@/components/ui/Avatar';
-import { RankBadge, StatusTag, EmptyState, MemberRow } from '@/components/ui/shared';
+} from './lib/constants';
+import Avatar from './components/ui/Avatar';
+import { RankBadge, StatusTag, EmptyState, MemberRow } from './components/ui/shared';
 import { useConfigStore } from './lib/store';
 import {
   Star, Award, FileText, Users, Shield, BarChart3, Plus,
