@@ -10,7 +10,7 @@ import {
 } from '@/lib/constants';
 import Avatar from '@/components/ui/Avatar';
 import { RankBadge, StatusTag, EmptyState, MemberRow } from '@/components/ui/shared';
-import { useConfigStore } from '@/lib/store';
+import { useConfigStore } from './lib/store';
 import {
   Star, Award, FileText, Users, Shield, BarChart3, Plus,
   Pencil, Trash2, X, Check, AlertTriangle, GripVertical,
