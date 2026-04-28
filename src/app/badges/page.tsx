@@ -1,12 +1,11 @@
 'use client';
 
-import { useUser } from '@/lib/useUser';
+import { usePathname } from 'next/navigation';
 
-// TODO: Implement full page — see spec in README
-export default function PagePlaceholder() {
-  const { surnom } = useUser();
-  const pageName = typeof window !== 'undefined' ? window.location.pathname.split('/').pop() : '';
-  
+export default function BadgesPage() {
+  const pathname = usePathname();
+  const pageName = pathname.split('/').pop() || '';
+
   return (
     <div className="pt-8">
       <h1 className="font-display text-3xl tracking-wider uppercase mb-6">{pageName}</h1>

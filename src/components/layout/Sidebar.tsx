@@ -7,7 +7,7 @@ import {
   LayoutDashboard, Users, Target, GraduationCap, Award, Zap,
   FileText, Scale, Archive, Shield, FolderOpen, Settings, LogOut, ChevronDown,
 } from 'lucide-react';
-import Avatar from './Avatar';
+import Avatar from '@/components/ui/Avatar';
 
 export default function Sidebar() {
   const router = useRouter();

@@ -705,12 +705,11 @@ function ConnectedTab() {
 // TAB: PERMISSIONS
 // ============================================================
 function PermissionsTab({ canManage }: { canManage: boolean }) {
-  if (!canManage) return <EmptyState icon="🔑" text="Réservé au Shériff ou permission dev" />;
-
   const [users, setUsers] = useState<any[]>([]);
   const [perms, setPerms] = useState<Record<string, string[]>>({});
 
   useEffect(() => {
+    if (!canManage) return;
     const supabase = createClient();
     Promise.all([
       supabase.from('users').select('*').eq('is_active', true).order('rank_level', { ascending: false }),
@@ -724,7 +723,9 @@ function PermissionsTab({ canManage }: { canManage: boolean }) {
       });
       setPerms(map);
     });
-  }, []);
+  }, [canManage]);
+
+  if (!canManage) return <EmptyState icon="🔑" text="Réservé au Shériff ou permission dev" />;
 
   return (
     <div>
