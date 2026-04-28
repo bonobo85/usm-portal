@@ -82,7 +82,7 @@ export default function Sidebar() {
       <div className="sidebar-footer">
         <div
           className="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all hover:bg-fond-hover"
-          onClick={() => nav(`/profil/${user.id}`)}
+          onClick={() => nav(`/profil?id=${user.id}`)}
         >
           <Avatar user={user} size="sm" showStatus />
           <div className="flex-1 min-w-0">

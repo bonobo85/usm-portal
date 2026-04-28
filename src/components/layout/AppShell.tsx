@@ -1,20 +1,24 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import Sidebar from '@/components/layout/Sidebar';
 import { ConfigLoader } from '@/components/ui/shared';
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+export default function AppShell({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (status === 'unauthenticated') {
+    if (status === 'unauthenticated' && pathname !== '/login') {
       router.push('/login');
     }
-  }, [status, router]);
+  }, [status, router, pathname]);
+
+  // Login page renders without shell
+  if (pathname === '/login') return <>{children}</>;
 
   if (status === 'loading') {
     return (
